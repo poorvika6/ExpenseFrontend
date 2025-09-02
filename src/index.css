@@ -1,3 +1,157 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  background-color: #f3fcff;
+  margin: 0;
+  padding: 0;
+}
+
+.expense-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+/* BALANCE BOX */
+.balance-container {
+  background-color: #8385f4;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  flex-wrap: wrap; /* allow wrapping on smaller screens */
+}
+
+.currency-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background-color: #9091f5;
+  color: #fff;
+  border-radius: 10px;
+  padding: 12px 18px;
+  flex: 1 1 100px; /* shrink & grow */
+  text-align: center;
+  min-width: 100px;
+}
+
+.currency-item .title {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.currency-item .amount {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.currency-item .amount.income {
+  color: #76ff76;
+}
+
+.currency-item .amount.expense {
+  color: #ff9494;
+}
+
+/* FORM */
+.expense-form {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #6466f1;
+  color: #fff;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* HISTORY ITEMS */
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.expense-item.income {
+  border-right: 5px solid #02c002;
+}
+
+.expense-item.expense {
+  border-right: 5px solid #dc0202;
+}
+
+.expense-item.income .expense-amount {
+  color: #02c002;
+}
+
+.expense-item.expense .expense-amount {
+  color: #dc0202;
+}
+
+/* DELETE BUTTON */
+.delete-button-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.173);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(10%);
+}
+
+.delete-button-overlay button {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px;
+  background-color: #f14848;
+  color: #fff;
+}
+
+.expense-item:hover .delete-button-overlay {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .expense-container {
     width: 90%;
