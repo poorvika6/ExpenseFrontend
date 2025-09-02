@@ -11,7 +11,7 @@ function Expensecontainer() {
 
   async function addExpense(title, amount) {
    try {
-     const newExpense=await fetch("http://localhost:5000/post", {   
+     const newExpense=await fetch("https://expensebackend-55nr.onrender.com/post", {   
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title, amount })
@@ -28,7 +28,7 @@ function Expensecontainer() {
   }
    async function fetchExpenses() {
     try {
-      const res = await fetch("http://localhost:5000/get");
+      const res = await fetch("https://expensebackend-55nr.onrender.com/get");
       const data = await res.json();
       if (data.expenses) {
         setExpense(data.expenses);
@@ -43,7 +43,7 @@ function Expensecontainer() {
   }, []);
   async function deleteExpense(id) {
   
-  await fetch(`http://localhost:5000/expense/${id}`,
+  await fetch(`https://expensebackend-55nr.onrender.com/expense/${id}`,
     {
       method:"DELETE"
     }
